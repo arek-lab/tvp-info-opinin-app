@@ -1,6 +1,13 @@
 # Angular Standalone Web Application Starter
 
-This repository contains a starter base for a web application built with Angular standalone components. It provides a clean, scalable foundation focused on authentication and integration with a Node.js backend.
+This project serves as a base for building a web application using **Angular Standalone** components.  
+It features authentication via **HTML cookies** with two login methods:
+
+- **Standard login** (email + password)
+- **Google OAuth login**
+
+The app is fully compatible with a **Node.js server** available in this repository:  
+👉 [Link to compatible Node.js server (your repository)](https://github.com/arek-lab/node-base-auth)
 
 ## Features
 
@@ -38,21 +45,8 @@ Create an environment file (e.g., `src/environments/environment.ts`) with approp
 
 For production builds, make sure to update `environment.prod.ts` accordingly.
 
-src/
-├── app/
-│ ├── auth/
-│ │ ├── auth.component.ts
-│ │ ├── google-callback.component.ts
-│ │ ├── auth.service.ts
-│ ├── home-auth.component.ts
-│ ├── home-non-auth.component.ts
-│ ├── loader
-│ ├── navbar
-│ ├── app.routes.ts
-│ ├── app.component.ts
-├── environments/
-│ ├── environment.ts
-│ ├── environment.prod.ts
+<pre> ``` src/ ├── app/ │ ├── auth/ │ │ ├── auth.component.ts │ │ ├── google-callback.component.ts │ │ ├── auth.service.ts │ ├── home-auth.component.ts │ ├── home-non-auth.component.ts │ ├── loader/ │ ├── navbar/ │ ├── app.routes.ts │ ├── app.component.ts ├── environments/ │ ├── environment.ts │ ├── environment.prod.ts ``` </pre>
 
-License
+## License
+
 MIT License
