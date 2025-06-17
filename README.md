@@ -1,27 +1,58 @@
-# App
+# Angular Standalone Web Application Starter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.8.
+This repository contains a starter base for a web application built with Angular standalone components. It provides a clean, scalable foundation focused on authentication and integration with a Node.js backend.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Authentication using HTTP-only cookies**  
+  Secure session management via cookies, eliminating token storage in localStorage or sessionStorage.
 
-## Code scaffolding
+- **Standard login and registration**  
+  Email/password-based authentication flows.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Google OAuth 2.0 login**  
+  Seamless sign-in and registration using Google OAuth, integrated with backend via Passport.js.
 
-## Build
+- **Standalone Angular components**  
+  Modern Angular architecture with standalone components for improved modularity and tree-shaking.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Routing Guards**  
+  Protect routes using Angular’s `CanActivate` guards based on user authentication status.
 
-## Running unit tests
+## Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Compatible Node.js backend server located in **this repository**, serving the authentication API.
+- Angular CLI (version 15 or higher).
+- Google OAuth credentials configured with proper redirect URIs.
 
-## Running end-to-end tests
+## Getting Started
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone this repository.
+2. Configure your environment variables for the backend URL and Google OAuth client ID.
+3. Run the Node.js backend server included in this repository and ensure it is accessible.
+4. Start the Angular application using the Angular CLI.
 
-## Further help
+## Environment Setup
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Create an environment file (e.g., `src/environments/environment.ts`) with appropriate API URL.
+
+For production builds, make sure to update `environment.prod.ts` accordingly.
+
+src/
+├── app/
+│ ├── auth/
+│ │ ├── auth.component.ts
+│ │ ├── google-callback.component.ts
+│ │ ├── auth.service.ts
+│ ├── home-auth.component.ts
+│ ├── home-non-auth.component.ts
+│ ├── loader
+│ ├── navbar
+│ ├── app.routes.ts
+│ ├── app.component.ts
+├── environments/
+│ ├── environment.ts
+│ ├── environment.prod.ts
+
+License
+MIT License

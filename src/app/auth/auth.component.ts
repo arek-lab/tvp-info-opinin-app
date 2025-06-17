@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { environment } from './../../environments/environment';
 
 @Component({
   selector: 'app-auth',
@@ -20,6 +21,7 @@ export class AuthComponent {
   private authService = inject(AuthService);
   authType = input.required<'login' | 'register'>();
   private router = inject(Router);
+  private apiUrl = environment.apiUrl;
 
   authForm = new FormGroup({
     email: new FormControl('', {
@@ -47,5 +49,9 @@ export class AuthComponent {
         console.error(`${this.authType()} error`, err);
       },
     });
+  }
+
+  loginWithGoogle() {
+    window.location.href = this.apiUrl + 'auth/google';
   }
 }

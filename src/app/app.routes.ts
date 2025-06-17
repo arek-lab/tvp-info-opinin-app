@@ -3,6 +3,7 @@ import { AuthComponent } from './auth/auth.component';
 import { HomeAuthComponent } from './home-auth/home-auth.component';
 import { authGuard } from './auth/auth-guard';
 import { HomeNonAuthComponent } from './home-non-auth/home-non-auth.component';
+import { GoogleCallbackComponent } from './auth/google-callback/google-callback.component';
 
 export const routes: Routes = [
   {
@@ -16,4 +17,5 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   { path: 'auth/:authType', component: AuthComponent },
+  { path: 'auth/google/callback', component: GoogleCallbackComponent },
 ];
