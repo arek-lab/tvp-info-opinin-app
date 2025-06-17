@@ -7,7 +7,7 @@ It features authentication via **HTML cookies** with two login methods:
 - **Google OAuth login**
 
 The app is fully compatible with a **Node.js server** available in this repository:  
-👉 [Link to compatible Node.js server (your repository)](https://github.com/arek-lab/node-base-auth)
+👉 [Link to compatible Node.js server (node-base-auth)](https://github.com/arek-lab/node-base-auth)
 
 ## Features
 
@@ -45,7 +45,23 @@ Create an environment file (e.g., `src/environments/environment.ts`) with approp
 
 For production builds, make sure to update `environment.prod.ts` accordingly.
 
-<pre> ``` src/ ├── app/ │ ├── auth/ │ │ ├── auth.component.ts │ │ ├── google-callback.component.ts │ │ ├── auth.service.ts │ ├── home-auth.component.ts │ ├── home-non-auth.component.ts │ ├── loader/ │ ├── navbar/ │ ├── app.routes.ts │ ├── app.component.ts ├── environments/ │ ├── environment.ts │ ├── environment.prod.ts ``` </pre>
+```
+src/
+├── app/
+│ ├── auth/
+│ │ ├── auth.component.ts
+│ │ ├── google-callback.component.ts
+│ │ ├── auth.service.ts
+│ ├── home-auth.component.ts
+│ ├── home-non-auth.component.ts
+│ ├── loader/
+│ ├── navbar/
+│ ├── app.routes.ts
+│ ├── app.component.ts
+├── environments/
+│ ├── environment.ts
+│ ├── environment.prod.ts
+```
 
 ## License
 
