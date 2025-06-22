@@ -1,0 +1,4 @@
+.custom-close-danger {
+  filter: brightness(0) saturate(100%) invert(30%) sepia(80%) saturate(750%)
+    hue-rotate(-10deg) brightness(95%) contrast(100%);
+}

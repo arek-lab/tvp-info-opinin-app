@@ -24,14 +24,20 @@ export class AuthService {
   login(email: string, password: string) {
     return this.http.post<UserResponse>(
       this.apiUrl + this.loginUrl,
-      { email, password },
+      {
+        email,
+        password,
+      },
       { withCredentials: true }
     );
   }
   register(email: string, password: string) {
     return this.http.post<UserResponse>(
       this.apiUrl + this.registerUrl,
-      { email, password },
+      {
+        email,
+        password,
+      },
       { withCredentials: true }
     );
   }
@@ -56,5 +62,25 @@ export class AuthService {
     return this.http.get<{ msg: string }>(this.apiUrl + 'auth/refresh-token', {
       withCredentials: true,
     });
+  }
+  forgotPassword(email: string) {
+    return this.http.post<{ msg: string }>(
+      this.apiUrl + 'auth/forgot-password',
+      { email }
+    );
+  }
+  resetPassword({
+    email,
+    token,
+    password,
+  }: {
+    email: string;
+    token: string;
+    password: string;
+  }) {
+    return this.http.post<{ msg: string }>(
+      this.apiUrl + 'auth/reset-password',
+      { email, token, password }
+    );
   }
 }

@@ -84,11 +84,8 @@
     </div>
     @if (authType() === 'login') {
     <div class="mt-3 d-flex gap-3 align-items-center">
-      <div
-        class="form-text"
-        [routerLink]="authType() === 'login' ? '/auth/register' : '/auth/login'"
-      >
-        Forget your password?
+      <div class="form-text" [routerLink]="'/auth/forgot-password'">
+        Forgot your password?
       </div>
     </div>
     }

@@ -9,6 +9,7 @@ import {
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { environment } from './../../environments/environment';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-auth',
@@ -22,6 +23,7 @@ export class AuthComponent {
   authType = input.required<'login' | 'register'>();
   private router = inject(Router);
   private apiUrl = environment.apiUrl;
+  private toastService = inject(ToastService);
 
   authForm = new FormGroup({
     email: new FormControl('', {
@@ -43,10 +45,11 @@ export class AuthComponent {
 
     action$.subscribe({
       next: (res) => {
+        this.authForm.reset();
         this.router.navigate(['home']);
       },
       error: (err) => {
-        console.error(`${this.authType()} error`, err);
+        this.authForm.controls['password'].reset();
       },
     });
   }
