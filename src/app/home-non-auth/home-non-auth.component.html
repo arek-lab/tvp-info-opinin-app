@@ -1,11 +1,166 @@
-<div class="container-fluid text-center p-5">
-  <h1>Home Page</h1>
-  <p class="mb-5">No auth needed</p>
-  <div class="mt-2 text-center">
-    <div class="btn btn-outline-light me-2" routerLink="/auth/login">Login</div>
-    <div class="btn btn-outline-light me-2" routerLink="/auth/register">
-      Register
+<!-- home.component.html -->
+<div class="hero-gradient d-flex align-items-center">
+  <div class="container position-relative">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-6 text-white">
+        <div class="mb-4 mt-3">
+          <h1 class="display-4 fw-bold mb-4">
+            Co TVP-Info <span class="text-warning">NAPRAWDĘ</span> myśli o...?
+          </h1>
+          <p class="lead mb-4 opacity-90">
+            Przeszukaj <strong>80 000 artykułów</strong> TVP-Info w sekundach.
+            Precyzyjne odpowiedzi zamiast ogólników.
+          </p>
+          <div class="mb-4">
+            <div
+              class="text-warning fw-bold h5"
+              [innerHTML]="currentQuestion"
+            ></div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row gap-3 mb-4">
+          <button
+            class="btn btn-light btn-lg px-4 py-3 fw-semibold"
+            routerLink="/auth/register"
+          >
+            <i class="fas fa-rocket me-2"></i>Rejestracja
+          </button>
+          <button
+            class="btn btn-outline-light btn-lg px-4 py-3"
+            routerLink="/auth/login"
+          >
+            <i class="fas fa-play me-2"></i>Logowanie
+          </button>
+        </div>
+
+        <div class="d-flex gap-4 text-center text-sm-start mb-3">
+          <div>
+            <div class="h4 fw-bold text-warning mb-0">80K</div>
+            <small class="opacity-75">artykułów</small>
+          </div>
+          <div>
+            <div class="h4 fw-bold text-warning mb-0">&lt;3s</div>
+            <small class="opacity-75">odpowiedź</small>
+          </div>
+          <div>
+            <div class="h4 fw-bold text-warning mb-0">95%</div>
+            <small class="opacity-75">dokładność</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section moved to right column -->
+
+      <div class="col-lg-6 features-col">
+        <div class="row text-center mb-1">
+          <div class="col-12">
+            <h2 class="display-5 fw-bold text-white mb-3">
+              Dlaczego RAG > ChatGPT?
+            </h2>
+            <p class="lead text-light opacity-75">
+              Specjalizacja pokonuje ogólność
+            </p>
+          </div>
+        </div>
+        <div class="row text-center g-2">
+          <div class="col-12">
+            <div class="feature-card p-0 text-center h-100">
+              <div class="feature-icon text-muted mb-3">
+                <i class="fas fa-robot fa-3x"></i>
+              </div>
+              <h5 class="mb-3">ChatGPT</h5>
+              <ul class="list-unstyled text-muted">
+                <li class="mb-2">Ogólna wiedza</li>
+                <li class="mb-2">Brak specjalizacji</li>
+                <li class="mb-2">Nieaktualne dane</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div
+              class="feature-card p-0 text-center h-100 border-primary position-relative"
+            >
+              <div class="position-absolute top-0 start-50 translate-middle">
+                <span class="badge bg-primary px-3 py-2">NAJLEPSZE</span>
+              </div>
+              <div class="feature-icon text-primary mb-3">
+                <i class="fas fa-bolt fa-3x"></i>
+              </div>
+              <h5 class="mb-3 text-primary">TVP-Info RAG</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2 text-success">
+                  <i class="fas fa-check me-2"></i>80K artykułów
+                </li>
+                <li class="mb-2 text-success">
+                  <i class="fas fa-check me-2"></i>Precyzyjne cytaty
+                </li>
+                <li class="mb-2 text-success">
+                  <i class="fas fa-check me-2"></i>Kontekst medialny
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="feature-card p-0 text-center h-100">
+              <div class="feature-icon text-muted mb-3">
+                <i class="fas fa-search fa-3x"></i>
+              </div>
+              <h5 class="mb-3">Google</h5>
+              <ul class="list-unstyled text-muted">
+                <li class="mb-2">Chaos informacyjny</li>
+                <li class="mb-2">Brak kontekstu</li>
+                <li class="mb-2">Dziesiątki stron</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="btn btn-outline-info" routerLink="/home">Enter Service</div>
   </div>
 </div>
+
+<!-- CTA Section -->
+<section class="cta-gradient py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center text-white">
+        <h2 class="display-5 fw-bold mb-3">Gotowy na prawdziwe insights?</h2>
+        <p class="lead mb-4 opacity-90">
+          Dołącz do ekspertów, którzy już używają RAG w analizie mediów
+        </p>
+        <button
+          class="btn btn-light btn-lg px-5 py-3 fw-semibold"
+          routerLink="/auth/register"
+        >
+          <i class="fas fa-rocket me-2"></i>Zarejestruj się i przetestuj
+        </button>
+        <p class="mt-3 mb-0 opacity-75">
+          <small>Bezpłatne konto • Natychmiastowy dostęp</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="small text-light opacity-75 mt-3 px-3">
+          🛈 Aplikacja ma charakter demonstracyjny i służy celom
+          edukacyjno-rozrywkowym. Nie ma na celu oceny tonu, intencji ani
+          przekazu redakcyjnego artykułów TVP-Info. Wyniki generowane są przez
+          model RAG na podstawie zawartości tekstowej i nie stanowią opinii ani
+          interpretacji dziennikarskiej.
+        </p>
+        <p class="small text-white-50 mt-2">
+          &copy; 2025 RAG-Explorer • Stworzone z ciekawości i do testów ✌️
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
