@@ -11,7 +11,8 @@ This is a full-stack project built to demonstrate how a domain-specific RAG syst
 
 <!-- Insert application screenshot below -->
 
-![Screenshot Placeholder](./screenshot.png)
+![Screenshot Placeholder](./screen1.png)
+![Screenshot Placeholder](./screen2.png)
 
 ---
 
@@ -107,6 +108,7 @@ src/
 │ ├── home-non-auth.component.ts
 │ ├── loader/
 │ ├── navbar/
+│ ├── services/
 │ ├── app.routes.ts
 │ ├── app.component.ts
 ├── environments/

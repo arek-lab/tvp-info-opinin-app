@@ -1,4 +1,82 @@
-<div class="container-fluid text-center p-5">
-  <h1>Home Page</h1>
-  <p class="mb-5">Auth needed - you are authorized</p>
+<div class="hero-gradient d-flex align-items-center">
+  <div class="container position-relative">
+    <div class="row justify-content-center min-vh-100">
+      <div class="col-lg-8 text-white">
+        <div class="mb-4 mt-3">
+          <h1 class="display-4 fw-bold mb-4 text-center">
+            Zapytaj o <span class="text-warning">dowolny temat</span>
+          </h1>
+          <p class="lead mb-4 opacity-90 text-center">
+            Przeszukaj <strong>80 000 artykułów</strong> TVP-Info w sekundach.
+            Uzyskaj precyzyjne odpowiedzi na swoje pytania. Wprowadź temat.
+          </p>
+        </div>
+
+        <!-- Query Form -->
+        <div class="query-card mb-4">
+          <form (ngSubmit)="onSubmit()" #queryForm="ngForm">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control query-input"
+                [(ngModel)]="query"
+                name="query"
+                placeholder="np. energia odnawialna"
+                required
+                #queryInput="ngModel"
+              />
+              <button
+                class="btn btn-warning btn-query"
+                type="submit"
+                [disabled]="!queryForm.valid || isLoading"
+              >
+                <i class="fas fa-search me-2" *ngIf="!isLoading"></i>
+                <div
+                  class="spinner-border spinner-border-sm me-2"
+                  *ngIf="isLoading"
+                ></div>
+                {{ isLoading ? "Opiniuję.." : "Zapytaj" }}
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Example Questions -->
+        <div class="example-questions mb-4" *ngIf="!response">
+          <h6 class="mb-3 opacity-75">Przykładowe tematy:</h6>
+          <div class="d-flex flex-wrap gap-2">
+            <button
+              class="btn btn-outline-light btn-sm"
+              *ngFor="let example of exampleQuestions"
+              (click)="setExampleQuery(example)"
+            >
+              {{ example }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Response Section -->
+        <div class="response-section" *ngIf="response">
+          <div class="response-card">
+            <div class="response-header">
+              <h5 class="mb-3">
+                <i class="fas fa-lightbulb text-warning me-2"></i>
+                Odpowiedź
+              </h5>
+              <button
+                class="btn btn-outline-light btn-sm"
+                (click)="clearResponse()"
+              >
+                <i class="fas fa-times me-1"></i>
+                Wyczyść
+              </button>
+            </div>
+            <div class="response-content">
+              <p class="mb-3"><markdown [data]="response"></markdown></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
