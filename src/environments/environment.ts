@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://git.heroku.com/rag-explorer.git/api/v1/',
+  apiUrl: 'https://rag-explorer-f551d45fdadb.herokuapp.com/api/v1/',
 };
