@@ -29,12 +29,6 @@ export class HomeAuthComponent {
     'sytuacja w Ukrainie',
   ];
 
-  constructor() {
-    effect(() => {
-      console.log('Credits changed:', this.credits());
-    });
-  }
-
   onSubmit(): void {
     if (!this.query.trim()) {
       this.error = 'Proszę wpisać pytanie';
