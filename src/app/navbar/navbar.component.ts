@@ -27,6 +27,7 @@ export class NavbarComponent implements AfterViewInit {
     this.authService.logout().subscribe({
       next: () => {
         this.router.navigate(['auth', 'login']);
+        this.closeNavbar();
       },
       error: (err) => {},
     });

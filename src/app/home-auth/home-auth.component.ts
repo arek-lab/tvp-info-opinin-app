@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpService } from '../services/http.service';
 import { MarkdownModule } from 'ngx-markdown';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-home-auth',
@@ -17,6 +18,8 @@ export class HomeAuthComponent {
   isLoading: boolean = false;
   error: string = '';
   private httpService = inject(HttpService);
+  private storageService = inject(StorageService);
+  credits = this.storageService.credits;
 
   exampleQuestions: string[] = [
     'energia odnawialna',
@@ -39,6 +42,7 @@ export class HomeAuthComponent {
     this.httpService.getOpinion(this.query).subscribe({
       next: (data) => {
         this.response = data.opinion;
+        this.storageService.credits.set(data.credits);
         this.isLoading = false;
       },
       error: (err) => {

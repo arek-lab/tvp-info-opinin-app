@@ -36,6 +36,9 @@
                   *ngIf="isLoading"
                 ></div>
                 {{ isLoading ? "Opiniuję.." : "Zapytaj" }}
+                <div class="text-light fw-light small mt-1">
+                  Kredyty: {{ credits() }}
+                </div>
               </button>
             </div>
           </form>

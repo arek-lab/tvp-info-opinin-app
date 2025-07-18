@@ -10,6 +10,7 @@ import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { environment } from './../../environments/environment';
 import { ToastService } from '../services/toast.service';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-auth',
@@ -20,6 +21,7 @@ import { ToastService } from '../services/toast.service';
 })
 export class AuthComponent {
   private authService = inject(AuthService);
+  private storageService = inject(StorageService);
   authType = input.required<'login' | 'register'>();
   private router = inject(Router);
   private apiUrl = environment.apiUrl;
@@ -45,6 +47,7 @@ export class AuthComponent {
 
     action$.subscribe({
       next: (res) => {
+        if (res.credits) this.storageService.credits.set(res.credits);
         this.authForm.reset();
         this.router.navigate(['home']);
       },

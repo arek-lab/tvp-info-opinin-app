@@ -10,7 +10,7 @@ export class HttpService {
   private apiUrl = environment.apiUrl;
 
   getOpinion(userInput: string) {
-    return this.http.post<{ opinion: string }>(
+    return this.http.post<{ opinion: string; credits: number }>(
       this.apiUrl + 'search',
       { texts: [userInput] },
       { withCredentials: true }
