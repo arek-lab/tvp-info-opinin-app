@@ -11,6 +11,7 @@ export const authGuard: CanActivateFn = () => {
 
   return authService.getCurrentUser().pipe(
     map((res) => {
+      console.log('GUARD res.credits:', res.credits);
       authService.user.set(res.user);
       storageService.credits.set(res.credits!);
       return true;
