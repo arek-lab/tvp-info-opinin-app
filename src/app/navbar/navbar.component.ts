@@ -22,12 +22,12 @@ export class NavbarComponent implements AfterViewInit {
   private router = inject(Router);
   @ViewChild('navbarCollapse') navbarCollapse!: ElementRef;
   collapseInstance: any;
+  user = this.authService.user;
 
   onLogout() {
     this.authService.logout().subscribe({
       next: () => {
         this.router.navigate(['auth', 'login']);
-        this.closeNavbar();
       },
       error: (err) => {},
     });

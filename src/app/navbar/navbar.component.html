@@ -45,11 +45,28 @@
       </ul>
 
       <!-- Logout wyrównany do prawej -->
-      <div class="ms-auto d-flex align-items-center">
+      @if (user()){
+      <div class="ms-auto d-flex align-items-center" (click)="closeNavbar()">
         <button class="btn btn-danger border-0" (click)="onLogout()">
           Logout
         </button>
       </div>
+      } @else {
+      <div class="ms-auto d-flex align-items-center" (click)="closeNavbar()">
+        <button
+          class="btn btn-warning border-0 me-2"
+          routerLink="/auth/register"
+        >
+          Rejestracja
+        </button>
+        <button
+          class="btn btn-outline-warning border-0"
+          routerLink="/auth/login"
+        >
+          Logowanie
+        </button>
+      </div>
+      }
     </div>
   </div>
 </nav>
