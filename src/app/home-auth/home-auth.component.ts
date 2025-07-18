@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpService } from '../services/http.service';
 import { MarkdownModule } from 'ngx-markdown';
@@ -28,6 +28,12 @@ export class HomeAuthComponent {
     'emigracja Polaków',
     'sytuacja w Ukrainie',
   ];
+
+  constructor() {
+    effect(() => {
+      console.log('Credits changed:', this.credits());
+    });
+  }
 
   onSubmit(): void {
     if (!this.query.trim()) {
